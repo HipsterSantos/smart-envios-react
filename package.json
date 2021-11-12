@@ -4,8 +4,8 @@
   "description": "create react application without cra scallfolding tool ",
   "main": "index.js",
   "scripts": {
-    "start":"webpack server --hop --open",
-    "build": "webpack --config webpack.config.js -- mode production"
+    "start":"webpack server --mode development --hot --open",
+    "build": "webpack --config webpack.config.js -- mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
