@@ -4,7 +4,7 @@
   "description": "create react application without cra scallfolding tool ",
   "main": "index.js",
   "scripts": {
-    "start":"webpack server --mode development --hot --open",
+    "start": "webpack server --mode development --hot --open",
     "build": "webpack --config webpack.config.js -- mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,7 +20,8 @@
   "homepage": "https://github.com/HipsterSantos/cra-no-cra#readme",
   "dependencies": {
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
