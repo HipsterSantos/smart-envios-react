@@ -37,6 +37,7 @@ padding:2em;
 
 const SaidaSimulador = (props) =>{
   const {sendDataInside} = props;
+  console.log('data inside ',sendDataInside);
     return (
       <Container>
       <Header>

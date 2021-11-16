@@ -71,7 +71,7 @@ const LabelDesc = styled.p`
     font-weight: ${props=>props.bold || 0};
 `;
 
-export default function(){
+export default function({output}){
 
 const [cep_origem,setCepOrigem] = useState('');
 const [cep_dest,setCepDest]= useState('');
@@ -100,7 +100,7 @@ console.log('token ',token)
         }
       ]
     };
-
+    output(data);
     let test = axios.post(url,
         {
          "zip_code_start": "14095140",

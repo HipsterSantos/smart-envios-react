@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useState,useEffect} from "react";
 import styled from "styled-components";
 import Router from './routes';
 import SidebarPage from './pages/SidebarPage';
@@ -36,8 +36,10 @@ const DashboardBody = styled.div`
 `;
 
 const App = () => {
-  const {REACT_APP} = process.env;
-  console.log('ENv ',REACT_APP);
+  const [data,setData] = useState();
+  useEffect(()=>{
+    console.log('data is ',data);
+  },[data])
   return (
 
     <DashboardContainer>
@@ -46,8 +48,11 @@ const App = () => {
         <SidebarPage/>
       </SidebarContainer>
       <DashboardBody>
-        <EntradaSimulador/>
-        <SaidaSimulador/>
+        <EntradaSimulador sendDataOutside={
+          function(e){
+            setData(e)
+          }}/>
+        <SaidaSimulador sendDataInside={data}/>
       </DashboardBody>
 
     </DashboardContainer>

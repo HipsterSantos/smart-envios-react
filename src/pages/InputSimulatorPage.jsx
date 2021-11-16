@@ -19,7 +19,13 @@ const Label = styled.p`
   margin-top:${props=>props.top || 0}em;
   font-weight: ${props=>props.bold || 0};
 `;
-const EntradaSimulador = ()=>{
+const EntradaSimulador = ({sendDataOutside})=>{
+  const [outputData,setOutPutdata] = useState();
+
+  useEffect( ()=>{
+    sendDataOutside(outputData)
+  },[outputData]);
+  // setOutPutdata(e=>"data sent")
   return (
     <Container>
     <Header>
@@ -31,7 +37,7 @@ const EntradaSimulador = ()=>{
         top={3}>
       Prencha os campos que seguem e tenha seu resultado em segundo
       </Label>
-      <FreteForm/>
+      <FreteForm output={e=>setOutPutdata(e)}/>
     </Container>
   )
 }
