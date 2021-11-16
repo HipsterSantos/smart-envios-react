@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react';
+import styled from 'styled-components';
 
 const CardContainer = styled.div`
 display:flex;
@@ -24,7 +25,7 @@ const Badge = styled.span`
      props.type=="expresso"?
      'background:#8DD0FA':
      'background: #E8B056'
-   }
+   };
 `;
 
 const Label = styled.span`
@@ -35,19 +36,26 @@ const Label = styled.span`
 `;
 
 export default function CardComponent(props){
+  const {payload} = props;
   return (
     <CardContainer>
       <CardHeader>
-        <Label>Serviço:{props.serviceName || 'Buslog'}</Label>
+        <Label>Serviço:{payload.serviceName || 'Buslog'}</Label>
         <Label>Dias Uteis:
-          <Label color={props.days>3?"#E8B056":"#73EB8A"}>{props.days || 4}</Label>
+          <Label color={payload.days>3?"#E8B056":"#73EB8A"}>{payload.days || 4}</Label>
         </Label>
       </CardHeader>
       <CardBody>
-        <Label size={14}> Valor: {props.price || '0.99$'}</Label>
+        <Label size={14}> Valor: {payload.price || '0.99$'}</Label>
       </CardBody>
       <CardFooter>
-        <Badge type="expresso">Expresso</Badge>
+        {
+          payload.isExpress &&
+          <Badge type="expresso">Expresso</Badge>
+        }
+        {payload.isEconomic &&
+          <Badge type="economic">Economico</Badge>
+        }
       </CardFooter>
     </CardContainer>
   )

@@ -1,6 +1,9 @@
 import React,{useState,useEffect } from 'react';
 import styled from 'styled-components';
 import Spinner from '../components/Spinner';
+import ListComponent from '../components/ListComponent';
+
+
 const Container = styled.div`
   width:100%;
   height:100%;
@@ -48,6 +51,7 @@ const WhileLoading = styled.div`
 
 const SaidaSimulador = (props) =>{
   const {sendDataInside} = props;
+
   console.log('data inside ',sendDataInside);
     return (
       <Container>
@@ -57,7 +61,7 @@ const SaidaSimulador = (props) =>{
       <Sylabus>
       {sendDataInside?(
         <>
-            here should appear cards
+          <ListComponent data={sendDataInside}/>
         </>):(
         <WhileLoading>
               <p className="blank_">Carregando...</p>

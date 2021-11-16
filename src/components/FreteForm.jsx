@@ -100,27 +100,28 @@ console.log('token ',token)
         }
       ]
     };
-    output(datas);
+
     var myHeaders = new Headers();
-myHeaders.append("token", "eTGXrcTvQetGkYQtMd5mboqikuwy7mhr");
-myHeaders.append("Content-Type", "application/json; charset=utf-8");
-myHeaders.append("Access-Control-Request-Method","POST");
-myHeaders.append("Access-Control-Request-Headers","token");
+    myHeaders.append("token", "eTGXrcTvQetGkYQtMd5mboqikuwy7mhr");
+    myHeaders.append("Content-Type", "application/json; charset=utf-8");
 
-var raw = " {\n  \"zip_code_start\": \"14095140\",\n  \"zip_code_end\": \"04123120\",  \n  \"volumes\": [\n    {\n        \"height\": 0,\n        \"length\": 0,\n        \"price\": 0,\n        \"quantity\": 0,\n        \"width\": 20,\n        \"weight\": 0\n}\n\n] \n\n}";
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: JSON.stringify(datas),
+  };
 
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: raw,
-};
-
-fetch("https://hml2.us-east-1.place.log.br/quote/api/quotes/calculate-freight", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log('=====',result))
-  .catch(error => console.log('error=====', error));
+  fetch("https://hml2.us-east-1.place.log.br/quote/api/quotes/calculate-freight", requestOptions)
+    .then(response => response.json())
+    .then(outcome => {
+      output(outcome.result);
+      console.log('=====',outcome)
+    })
+    .catch(error => console.log('error=====', error));
 
 }
+
+
 
   return(
       <FormContainer onSubmit={handleSubmit}>
