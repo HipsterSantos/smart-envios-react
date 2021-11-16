@@ -19,10 +19,16 @@
   },
   "homepage": "https://github.com/HipsterSantos/cra-no-cra#readme",
   "dependencies": {
+    "@hookform/resolvers": "^2.8.3",
+    "axios": "^0.24.0",
+    "dotenv": "^10.0.0",
+    "dotenv-webpack": "^7.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.19.5",
-    "styled-components": "^5.3.3"
+    "react-router-dom": "^6.0.2",
+    "styled-components": "^5.3.3",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

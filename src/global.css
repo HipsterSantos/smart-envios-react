@@ -1,0 +1,18 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+*,:after,:before{
+  box-sizing:border-box;
+}
+
+@font-face{
+  font-family:'gotham-light';
+  src:url('./assets/fonts/GothamLight.ttf')
+}
+
+@font-face{
+  font-family: 'gotham-bold';
+  src: url('./assets/fonts/GothamMedium.ttf');
+}
