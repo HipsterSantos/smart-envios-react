@@ -16,7 +16,7 @@ display:flex;
 const CardHeader = styled.div`
 display:flex;
 margin-left: auto;
- 
+
 `;
 
 const Badge = styled.span`
@@ -38,7 +38,7 @@ export default function CardComponent(props){
   return (
     <CardContainer>
       <CardHeader>
-        <Label>Service:{props.serviceName || 'Buslog'}</Label>
+        <Label>Serviço:{props.serviceName || 'Buslog'}</Label>
         <Label>Dias Uteis:
           <Label color={props.days>3?"#E8B056":"#73EB8A"}>{props.days || 4}</Label>
         </Label>

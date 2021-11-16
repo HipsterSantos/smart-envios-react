@@ -86,7 +86,7 @@ const url = process.env.API_URL;
 const token = process.env.API_TOKEN;
 console.log('token ',token)
   const handleSubmit = args => {
-    const data = {
+    const datas = {
       zip_code_start: cep_origem,
       zip_code_end: cep_dest,
       volumes: [
@@ -100,32 +100,25 @@ console.log('token ',token)
         }
       ]
     };
-    output(data);
-    let test = axios.post(url,
-        {
-         "zip_code_start": "14095140",
-         "zip_code_end": "04123120",
-         "volumes": [
-           {
-               "height": 1,
-               "length": 10,
-               "price": 200,
-               "quantity": 1,
-               "width": 10,
-               "weight": 1
-           }
-         ]
-      }, {
-      headers: {
-        'token': token,
-        'mode':'no-cors',
-        'Accept': '*/*',
-        'Content-Type': 'application/json;charset=utf-8'
-      }
-    });
+    output(datas);
+    var myHeaders = new Headers();
+myHeaders.append("token", "eTGXrcTvQetGkYQtMd5mboqikuwy7mhr");
+myHeaders.append("Content-Type", "application/json; charset=utf-8");
+myHeaders.append("Access-Control-Request-Method","POST");
+myHeaders.append("Access-Control-Request-Headers","token");
 
+var raw = " {\n  \"zip_code_start\": \"14095140\",\n  \"zip_code_end\": \"04123120\",  \n  \"volumes\": [\n    {\n        \"height\": 0,\n        \"length\": 0,\n        \"price\": 0,\n        \"quantity\": 0,\n        \"width\": 20,\n        \"weight\": 0\n}\n\n] \n\n}";
 
-    console.log('test ',test)
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+};
+
+fetch("https://hml2.us-east-1.place.log.br/quote/api/quotes/calculate-freight", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log('=====',result))
+  .catch(error => console.log('error=====', error));
 
 }
 
