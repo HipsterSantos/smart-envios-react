@@ -1,5 +1,6 @@
 import React,{useState,useEffect } from 'react';
 import styled from 'styled-components';
+import Spinner from '../components/Spinner';
 const Container = styled.div`
   width:100%;
   height:100%;
@@ -35,6 +36,16 @@ padding:2em;
 }
 `;
 
+const WhileLoading = styled.div`
+    justify-Content: center;
+    display:flex;
+    flex-direction: column;
+    padding: 10em !important;
+    &>*{align-item: center;
+    text-align: center;
+    }
+`;
+
 const SaidaSimulador = (props) =>{
   const {sendDataInside} = props;
   console.log('data inside ',sendDataInside);
@@ -44,9 +55,16 @@ const SaidaSimulador = (props) =>{
         <Label size={24} bold="bold">Resultado do seu pedido</Label>
       </Header>
       <Sylabus>
-      {sendDataInside?(<></>):(<>
-        <p className="blank_">Currently working on it ...</p>
-        </>)}
+      {sendDataInside?(
+        <>
+            here should appear cards
+        </>):(
+        <WhileLoading>
+              <p className="blank_">Carregando...</p>
+              <Spinner/>
+        </WhileLoading>
+      )}
+
       </Sylabus>
       </Container>
     )
