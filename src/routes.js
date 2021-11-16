@@ -4,12 +4,6 @@ import EntradaSimulador from './pages/InputSimulatorPage';
 import SaidaSimulador from './pages/OutcomeSimulatorPage';
 import FreteContext from './contexts/freteContext';
 
-const Home  = ()=>{
-  return(<>
-    <h1>I'm home</h1>
-  </>)
-}
-
 export default function RouteModule(){
   return (
     <BrowserRouter>
