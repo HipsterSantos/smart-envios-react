@@ -87,16 +87,16 @@ const token = process.env.API_TOKEN;
 console.log('token ',token)
   const handleSubmit = args => {
     const datas = {
-      zip_code_start: cep_origem,
-      zip_code_end: cep_dest,
+      zip_code_start: cep_origem??"14095140",
+      zip_code_end: cep_dest??"04120120",
       volumes: [
           {
-            height: Number(altura),
-            length: Number(length),
-            price: Number(price),
-            quantity: Number(qqt),
-            width: Number(largura),
-            weight: Number(peso)
+            height: Number(altura)??0,
+            length: Number(length)??0,
+            price: Number(price)??0,
+            quantity: Number(qqt)??1,
+            width: Number(largura)??1,
+            weight: Number(peso)??1
         }
       ]
     };

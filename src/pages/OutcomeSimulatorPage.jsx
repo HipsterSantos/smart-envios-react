@@ -64,7 +64,7 @@ const SaidaSimulador = (props) =>{
           <ListComponent data={sendDataInside}/>
         </>):(
         <WhileLoading>
-              <p className="blank_">Carregando...</p>
+              <p className="blank_">Aguardando seu pedido...</p>
               <Spinner/>
         </WhileLoading>
       )}

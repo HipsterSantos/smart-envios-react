@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 const CardContainer = styled.div`
 display:flex;
-flex-direction:column;
+box-shadow: 1px 3px rgba(0,0,0,.4);
+padding:1em .5em;
 `;
 
 const CardBody = styled.div`
@@ -40,20 +41,20 @@ export default function CardComponent(props){
   return (
     <CardContainer>
       <CardHeader>
-        <Label>Serviço:{payload.serviceName || 'Buslog'}</Label>
+        <Label>Serviço:{payload.service || 'Buslog'}</Label>
         <Label>Dias Uteis:
           <Label color={payload.days>3?"#E8B056":"#73EB8A"}>{payload.days || 4}</Label>
         </Label>
       </CardHeader>
       <CardBody>
-        <Label size={14}> Valor: {payload.price || '0.99$'}</Label>
+        <Label size={14}> Valor: {payload.value || '0.99$'}</Label>
       </CardBody>
       <CardFooter>
         {
-          payload.isExpress &&
+          payload && payload.days<3 &&
           <Badge type="expresso">Expresso</Badge>
         }
-        {payload.isEconomic &&
+        {payload && payload.value <10 &&
           <Badge type="economic">Economico</Badge>
         }
       </CardFooter>
