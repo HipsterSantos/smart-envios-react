@@ -4,6 +4,7 @@ import EntradaSimulador from './pages/InputSimulatorPage';
 import SaidaSimulador from './pages/OutcomeSimulatorPage';
 import FreteContext from './contexts/freteContext';
 
+
 export default function RouteModule(){
   return (
     <BrowserRouter>
