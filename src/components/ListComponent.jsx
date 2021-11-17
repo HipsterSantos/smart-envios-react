@@ -1,13 +1,16 @@
 import React,{useState,useEffect} from 'react';
 import Card from './CardComponent'
 import styled from 'styled-components';
+
 const ListContainer = styled.div`
-  display:flex;
-  flex-direction:columns;
-  justify-content:center;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
   padding:1em;
   &>*{
-    margin-top:.8em;
+    margin-top:2em;
+    display: flex;
+    flex-direction: column;
   }
 `;
 export default function ListComponent(props){

@@ -3,8 +3,16 @@ import styled from 'styled-components';
 
 const CardContainer = styled.div`
 display:flex;
-box-shadow: 1px 3px rgba(0,0,0,.4);
+box-shadow: 1px 3px 19px rgba(0,0,0,.2);
 padding:1em .5em;
+border-radius:.8em;
+height: 125px;
+width: 514px;
+&>*{
+  display:flex;
+  margin-top:1.5em;
+  flex-direction: column;
+}
 `;
 
 const CardBody = styled.div`
@@ -17,7 +25,14 @@ display:flex;
 
 const CardHeader = styled.div`
 display:flex;
-margin-left: auto;
+.day{
+  margin-left: auto;
+  margin-right:2em;
+}
+.day-numbered{
+  margin-left:5em;
+}
+
 
 `;
 
@@ -29,8 +44,8 @@ const Badge = styled.span`
    };
 `;
 
-const Label = styled.span`
-  font-size: ${props=>props.size||13}px;
+const Label = styled.p`
+  font-size: ${props=>props.size||13}pt;
   margin-top:${props=>props.top || 0}em;
   font-weight: ${props=>props.bold || 0};
   color: ${props=>props.color || '#000'};
@@ -41,9 +56,9 @@ export default function CardComponent(props){
   return (
     <CardContainer>
       <CardHeader>
-        <Label>Serviço:{payload.service || 'Buslog'}</Label>
-        <Label>Dias Uteis:
-          <Label color={payload.days>3?"#E8B056":"#73EB8A"}>{payload.days || 4}</Label>
+        <Label bold="bold">Serviço:{payload.service || 'Buslog'}</Label>
+        <Label bold="bold" className="day">Dias Uteis:
+          <Label bold="bold" className="day-numbered" size={14} color={payload.days>3?"#E8B056":"#73EB8A"}>{payload.days || 4}</Label>
         </Label>
       </CardHeader>
       <CardBody>
@@ -52,10 +67,10 @@ export default function CardComponent(props){
       <CardFooter>
         {
           payload && payload.days<3 &&
-          <Badge type="expresso">Expresso</Badge>
+          <Badge type={payload.days< 3 && "expresso"}>Expresso</Badge>
         }
         {payload && payload.value <10 &&
-          <Badge type="economic">Economico</Badge>
+          <Badge type={payload.value <10 && "economic"}>Economico</Badge>
         }
       </CardFooter>
     </CardContainer>

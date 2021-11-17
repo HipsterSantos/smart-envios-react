@@ -23,6 +23,7 @@ const SidebarContainer = styled.div`
 const DashboardBody = styled.div`
    flex:4;
    display:flex;
+   overflow-y:scrool;
    padding: 2em 1.5em;
    &> * {
      margin-left:.6em;
